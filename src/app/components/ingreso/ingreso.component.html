@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Ingreso Productos</h2>
+        <form #formArticulo="ngForm" (ngSubmit)="agregarArticulo()">
+            <div class="row">
+              <div class="col-md-12">
+                <label for="id"> ID PRODUCTO </label>
+                <input id="id" type="text " class="form-control " name="id " 
+                placeholder="Código del Producto" [(ngModel)]="id" required
+                  >
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-md-12">
+                <label for="articulo"> NOMBRE PRODUCTO </label>
+                <input id="articulo" type="text " class="form-control " name="articulo" 
+                placeholder="Nombre del Producto" [(ngModel)]="articulo" >
+              </div>
+            </div>
+  
+            <div class="row">
+                <div class="col-md-12">
+                  <label for="cantidad"> CANTIDAD PRODUCTO </label>
+                  <input id="cantidad" type="text " class="form-control " name="cantidad" 
+                  placeholder="Cantidad Producto" [(ngModel)]="cantidad" >
+                </div>
+              </div>
+    
+            <hr>
+            <button class="btn btn-success" type="submit"  >Ingresar</button>
+           
+          </form>
+      </div>
+  
+      <div class="col-md-6" *ngIf="listaArticulos.length">
+          <h2>LISTA DE PRODUCTOS</h2>
+          <ul class="lista-articulos">
+            <li class="paquete" *ngFor="let paquete of listaArticulos; let i = index">
+              {{paquete.id}} 
+              {{paquete.articulo}}
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
